@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ryl.dao.ColumnDao">
+	<select id="getlist" resultType="Columnn">
+	SELECT * FROM columnn
+	<where>
+	<if test="id!=null&&id!=''">
+	and like id "%${id}%"
+	</if>
+	<if test="ver!=null&&ver!=''">
+	and like ver "%${ver}%"
+	</if>
+	<if test="ms!=null&&ms!=''">
+	and like ms "%${ms}%"
+	</if>
+	<if test="cname!=null&&cname!=''">
+	and like cname "%${cname}%"
+	</if>
+	<if test="cp!=null&&cp!=''">
+	and like cp "%${cp}%"
+	</if>
+	<if test="home!=null&&home!=''">
+	and like home "%${home}%"
+	</if>
+	<if test="tz!=null&&tz!=''">
+	and like tz "%${tz}%"
+	</if>
+	<if test="cr!=null&&cr!=''">
+	and like cr "%${cr}%"
+	</if>
+	<if test="nj!=null&&nj!=''">
+	and like nj "%${nj}%"
+	</if>
+	</where>
+	
+	</select>
+	<insert id="add" parameterType="Columnn">
+	INSERT INTO columnn (id,ver,ms,cname,cp,home,tz,cr,nj,tb,bz) 
+	VALUES(#{id},#{ver},#{ms},#{cname},#{cp},#{home},#{tz},#{cr},#{nj},#{tb},#{bz})
+	</insert>
+</mapper>	
